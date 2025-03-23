@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xpxp.mapper.JoinapplicationsMapper">
+
+    <select id="getMessages" resultType="com.xpxp.pojo.VO.MessageVO">
+        SELECT
+            p.title AS projectName,
+            s.username AS senderName,
+            r.username AS receiverName,
+            j.reason,
+            j.strengths,
+            j.status,
+            j.project_id,
+            j.sender_id,
+            j.receiver_id
+        FROM
+            joinapplications j
+                JOIN
+            projects p ON j.project_id = p.id
+                JOIN
+            user s ON j.sender_id = s.id
+                JOIN
+            user r ON j.receiver_id = r.id
+        WHERE
+            j.sender_id = #{id} OR j.receiver_id = #{id};
+    </select>
+</mapper>

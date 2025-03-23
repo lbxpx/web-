@@ -1,0 +1,2 @@
+front commit 中提交的是前端代码，代码为了简洁删掉了node_modules,需要主动初始化
+back commit 中提交的是后端代码，已经包含了前后端一体化，resource中可以将前端部分自主根据需求删除或保留，需要自己根据配置编写dev.xml文件

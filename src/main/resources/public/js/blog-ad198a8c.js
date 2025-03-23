@@ -1,0 +1,1 @@
+import{s as a}from"./users-f5a9a53f.js";const s=s=>a({url:"/api/blogs/page",method:"get",params:s}),t=s=>a({url:`/api/blogs/${s}`,method:"get"}),o=s=>a({url:"/api/blogs/write",method:"put",data:{...s}});export{t as a,o as b,s as g};

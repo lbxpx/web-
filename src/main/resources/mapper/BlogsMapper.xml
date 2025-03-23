@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xpxp.mapper.BlogsMapper">
+
+    <select id="getBlogsList" resultType="com.xpxp.pojo.VO.BlogsVO">
+        select id,title,author_name as author, image, created_at as date,tags
+        from blogs
+        <where>
+            <if test="condition.content!=null">
+                and ((title like concat('%',#{condition.content},'%'))
+                or (author_name like concat('%',#{condition.content},'%')))
+            </if>
+        </where>
+        order by created_at desc
+    </select>
+</mapper>
